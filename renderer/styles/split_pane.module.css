@@ -1,0 +1,11 @@
+.divider {
+  height: 100%;
+  width: 2px;
+  background-color: rgba(220, 220, 220, 1);
+  cursor: col-resize;
+}
+
+.divider:active {
+  width: 5px;
+  background-color: rgba(150, 150, 255, 1);
+}

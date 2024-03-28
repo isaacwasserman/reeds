@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom global styles */
+html {
+  font-family: BlinkMacSystemFont, sans-serif;
+}
+
+* {
+  -webkit-user-select: none;
+}
+
+@layer base {
+  body {
+    background-color: rgba(244, 244, 244, 1);
+  }
+}
