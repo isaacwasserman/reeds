@@ -143,6 +143,16 @@ class ReedsDocument {
       bibtex: this.bibtex,
     };
   }
+
+  get(key: string): any {
+    if (key === "addedDate") {
+      return this.addedDate;
+    } else if (key === "id") {
+      return this.id;
+    } else {
+      return this.bibtex[key];
+    }
+  }
 }
 
 function formatAuthor(value: string): string {
@@ -160,12 +170,25 @@ function formatAuthor(value: string): string {
   }
 }
 
+function formatAddedDate(value: number): string {
+  let date = new Date(1970, 0, 1);
+  date.setSeconds(value);
+  let dateString = date.toLocaleDateString();
+  // Create time string without seconds but with AM/PM
+  let timeString = date.toLocaleTimeString().replace(/:\d+ /, " ");
+  dateString = `${dateString} ${timeString}`;
+  return dateString;
+}
+
 function formatField(field: string, value: string): string {
   let formattedValue = value;
   try {
     switch (field) {
       case "author":
         formattedValue = formatAuthor(value);
+        break;
+      case "addedDate":
+        formattedValue = formatAddedDate(value);
         break;
     }
   } catch (error) {

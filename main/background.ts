@@ -27,8 +27,7 @@ if (isProd) {
   // Check if documentStore is empty. If so, give it the test data.
   if (true) {
     documentStore.setAtPath("documents", testDocuments.documents);
-  } else {
-    console.log("Document Store: ", documentStore.getAll());
+    documentStore.setAtPath("folders", testDocuments.folders);
   }
 
   ipcMain.handle("getDocumentData", getDocumentData);
